@@ -1,11 +1,13 @@
 package com.addressbook;
 
+import javax.naming.Name;
 import javax.swing.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 /*UC1 create contact in addressbook*/
-  class contact {
+  class contact<AddressHashMap> {
 
     String firstName;
     String lastName;
@@ -34,7 +36,9 @@ import java.util.Scanner;
     }
 
       class Addressbook {
-        /*UC2 ability to add new contact to addressbook*/
+          private Object map;
+
+          /*UC2 ability to add new contact to addressbook*/
         public void Addnewcontact() {
 
             ArrayList<contact> contactlist = new ArrayList<>();
@@ -66,7 +70,7 @@ import java.util.Scanner;
                 }
             }
             /*UC4 ability to delete a person using person's name*/
-            private void  DeletePerson(String firstName){
+            private void DeletePerson (String firstName){
                 for (int i = 0; i < contactlist.size(); i++) {
                     AddressBook p = contactlist.get(i);
                     if (name.equals(p.firstName)) {
@@ -80,7 +84,7 @@ import java.util.Scanner;
             }
             /*UC5 ability to add multiple persons to address book*/
 
-            public void AddMultiplePersons() {
+            public void AddMultiplePersons () {
                 Scanner sc = new Scanner(System.in);
                 System.out.print("enter how many person you want to add :");
                 int Count = sc.nextInt();
@@ -93,15 +97,28 @@ import java.util.Scanner;
             }
             /*UC6 add multiple addressbook to the system*/
 
-            public void  addMultipleAddressBook(){
+            public void addMultipleAddressBook () {
                 int AddressBook = 2;
-                for(int i = 0; i<AddressBook; i++){
+                for (int i = 0; i < AddressBook; i++) {
                     AddressBook addressBook = new AddressBook();
                     Scanner sc = new Scanner(System.in);
                     System.out.println("Enter the name for addressbook");
                     String AddressBook_A = sc.next();
                 }
                 return AddressBook;
+            }
+            /* UC7 ability to ensure there is no duplicate entry of the same person*/
+            public void NoDuplicateEntry () {
+
+                if (map.equals(firstName.concat(lastName))) {
+                    System.out.println("no duplicate entries");
+                }
+                map.put(firstName.contactdata(lastName).contactdata);
+            }
+        }
+        public void print(HashMap<String, contact> map){
+            for (String map1 : map.keySet()){
+                System.out.println("key:" +map1+"value:" +map.get(map1));
             }
 
             }
@@ -127,10 +144,13 @@ import java.util.Scanner;
         //contact contact2 = new contact("chinni", "tanangi", "SR nagar", "hyderabad", "Telangana");
         //p1.print();
 
-        //A1.Addnewcontact();
-        //A1.EditPerson("chinni", " Chinni");
-        //A1.DeletePerson("chinni");
-        A1.AddMultipleAddressBook();
+        //A1.Addnewcontact();/*UC2*/
+        //A1.EditPerson("chinni", " Chinni");/*UC3*/
+        //A1.DeletePerson("chinni");/*UC4*/
+        // A1.AddMultiplePersons();/*UC5*/
+        // A1.AddMultipleAddressBook();/*UC6*/
+        AddressHashMap h =new AddressHashMap();
+        A1.NoDuplicatentries();/*UC7*/
     }
           private void EditPerson(String chinni, String s){
         }
