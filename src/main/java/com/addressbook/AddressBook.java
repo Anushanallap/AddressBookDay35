@@ -182,7 +182,15 @@ import java.util.stream.Collectors;
                   System.out.println("Invalid user input");
                   break;
               }
-             
+              /*UC11 ability to sort the entries in the addressbook*/
+              case "4":
+              private Arrays contactlist;
+              List<String> sorted = contactlist.stream().map(a -> {
+                          return a.firstName.concat(a.Last_name);
+                      }).sorted()
+                      .collect(Collectors.toList());
+			sorted.forEach(System.out::println);
+			break;
               
               }
 
@@ -216,7 +224,8 @@ import java.util.stream.Collectors;
         AddressHashMap h =new AddressHashMap();
        // A1.NoDuplicatentries();/*UC7*/
         //A1.searchPersonByCityorstate();/*UC8*/
-        A1.searchpersonbycity();/*UC9*/
+       // A1.searchpersonbycity();/*UC9*/
+        A1.sortentriesof addressbook();/*UC11*/
     }
           private void EditPerson(String chinni, String s){
         }
