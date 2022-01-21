@@ -1,11 +1,11 @@
 package com.addressbook;
 
+import jdk.internal.access.JavaSecurityAccess;
+
 import javax.naming.Name;
 import javax.swing.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Hashtable;
-import java.util.Scanner;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /*UC1 create contact in addressbook*/
   class contact<AddressHashMap> {
@@ -119,7 +119,9 @@ import java.util.Scanner;
               }
           }
 
-          class AddressHashMap {
+          class AddressHashMap<case3> {
+              Hashtable<Integer, String> hashTable = new Hashtable<Integer, String>();
+
               public void print(HashMap<String, contact> map) {
                   for (String map1 : map.keySet()) {
                       System.out.println("key:" + map1 + "value:" + map.get(map1));
@@ -161,8 +163,27 @@ import java.util.Scanner;
                   }
                   System.out.println(contactname + "found in" + hashtable);
                   break;
-              }
 
+
+                  /*UC10 ability to get number of contact peron i.e count by city or state*/
+                  case3:
+                  cityorstate = JOptionPane.showInputDialog("Enter the city or state name");
+                  for (int i = 0; i < contactlist.size(); i++) {
+                      contact p = contactlist.get(i);
+                      if ((cityorstate.equals(p.city)) || cityorstate.equals(p.state)) {
+                          System.out.println(p.firstName.concat(p.lastName));
+                          hashTable.put(i + 1, p.phone);
+                      } else
+                          continue;
+                  }
+                  System.out.println("In " + cityorstate + " we found " + hashTable);
+                  break;
+                  default:
+                  System.out.println("Invalid user input");
+                  break;
+              }
+             
+              
               }
 
               private void AddPreson() {
