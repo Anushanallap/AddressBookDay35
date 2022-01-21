@@ -1,10 +1,9 @@
 package com.addressbook;
 
-/*UC1*/
-
 import javax.swing.*;
 import java.util.ArrayList;
 
+/*UC1 create contact in addressbook*/
   class contact {
 
     String firstName;
@@ -34,7 +33,7 @@ import java.util.ArrayList;
     }
 
       class Addressbook {
-        /*UC2*/
+        /*UC2 ability to add new contact to addressbook*/
         public void Addnewcontact() {
 
             ArrayList<contact> contactlist = new ArrayList<>();
@@ -56,7 +55,7 @@ import java.util.ArrayList;
             }
         }
 
-        /*UC3*/
+        /*UC3 ability to edit contact person using name*/
         private void Editperson(String firstName, String firstName1) {
             contact[] contactlist = new contact[0];
             for (contact person : contactlist) {
@@ -65,20 +64,39 @@ import java.util.ArrayList;
                     person.print();
                 }
             }
+            /*UC4 ability to delete a person using person's name*/
+            private void  DeletePerson(String firstName){
+                for (int i = 0; i < contactlist.size(); i++) {
+                    AddressBook p = contactlist.get(i);
+                    if (name.equals(p.firstName)) {
+                        contactlist.remove(i);
+                        System.out.println("Person  name has been deleted");
+                        System.out.println(contactlist);
+                    } else
+                        System.out.println("Person name not found");
+                }
+
+            }
 
         }
 public class AddressBook {
-    public static void main(String[] args) {
+    public void main(String[] args) {
+        
+        Addressbook A1 = new Addressbook();
 
         //contact contact2 = new contact("chinni", "tanangi", "SR nagar", "hyderabad", "Telangana");
         //p1.print();
 
-        Addressbook A1 = new Addressbook();
-        A1.Addnewcontact();
-        A1.EditPerson("chinni", " Nani");
+        //A1.Addnewcontact();
+        //A1.EditPerson("chinni", " Chinni");
+        A1.DeletePerson("chinni");
     }
 }
-private void EditPerson(String chinni, String s){
+
+          private void DeletePerson(String chinni) {
+          }
+
+          private void EditPerson(String chinni, String s){
         }
       }
     }
