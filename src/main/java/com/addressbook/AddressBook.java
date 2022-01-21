@@ -57,7 +57,7 @@ import java.util.Scanner;
         }
 
         /*UC3 ability to edit contact person using name*/
-        private void Editperson(String firstName, String firstName1) {
+        private int Editperson(String firstName, String firstName1) {
             contact[] contactlist = new contact[0];
             for (contact person : contactlist) {
                 if (firstName.equals(person.firstName)) {
@@ -91,6 +91,18 @@ import java.util.Scanner;
                     p.display();
                 }
             }
+            /*UC6 add multiple addressbook to the system*/
+
+            public void  addMultipleAddressBook(){
+                int AddressBook = 2;
+                for(int i = 0; i<AddressBook; i++){
+                    AddressBook addressBook = new AddressBook();
+                    Scanner sc = new Scanner(System.in);
+                    System.out.println("Enter the name for addressbook");
+                    String AddressBook_A = sc.next();
+                }
+                return AddressBook;
+            }
 
             }
 
@@ -98,6 +110,9 @@ import java.util.Scanner;
           }
 
           public void DeletePerson(String chinni) {
+          }
+
+          public void AddMultipleAddressBook() {
           }
       }
 
@@ -114,7 +129,8 @@ import java.util.Scanner;
 
         //A1.Addnewcontact();
         //A1.EditPerson("chinni", " Chinni");
-        A1.DeletePerson("chinni");
+        //A1.DeletePerson("chinni");
+        A1.AddMultipleAddressBook();
     }
           private void EditPerson(String chinni, String s){
         }
