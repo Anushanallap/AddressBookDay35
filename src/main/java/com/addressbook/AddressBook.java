@@ -224,8 +224,43 @@ import java.util.stream.Collectors;
     public static void printData() throws IOException {
         Files.lines(new File(FILE_PATH).toPath()).forEach(System.out::println);
     }
+}/*UC14 ability to read/write the address book with personscontact as csvfile */
+    public <CSVWriter> void writedataAtOnce() {
+        File file = new File("c:\\users\\Dell\\eclipse-workspace\\txtfile.csv");
 
-    
+        try {
+            FileWriter outputfile = new FileWriter( file);
+            CSVWriter writer = new CSVWriter(outputfile);
+            List<String[]> data = new ArrayList<String[]>();
+            data.add(new String[] { "Name", "Class", "Marks" });
+            data.add(new String[] { "Anusha", "10", "620" });
+            data.add(new String[] { "Sam", "10", "630" });
+            writer.writeAll(data);
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public static <CSVReader> void readDataLineByLine() {
+
+        try {
+            FileReader filereader = new FileReader("c:\\\\users\\\\Dell\\\\eclipse-workspace\\\\txtfile.csv" );
+            CSVReader csvReader = new CSVReader(filereader);
+            String[] nextRecord;
+
+            // we are going to read data line by line
+            while ((nextRecord = csvReader.readNext()) != null) {
+                for (String cell : nextRecord) {
+                    System.out.print(cell + "\t");
+                }
+                System.out.println();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
 
               private void AddPreson() {
