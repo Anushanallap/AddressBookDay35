@@ -41,124 +41,140 @@ import java.util.Scanner;
           private Object map;
 
           /*UC2 ability to add new contact to addressbook*/
-        public void Addnewcontact() {
+          public void Addnewcontact() {
 
-            ArrayList<contact> contactlist = new ArrayList<>();
-
-            String firstName1 = JOptionPane.showInputDialog("Enter First name");
-            String lastName1 = JOptionPane.showInputDialog("Enter last name");
-            String address1 = JOptionPane.showInputDialog("Enter address ");
-            String city1 = JOptionPane.showInputDialog("Enter city name");
-            String phone1 = JOptionPane.showInputDialog("Enter phone number");
-            String state1 = JOptionPane.showInputDialog("Enter state name");
-            String zip1 = JOptionPane.showInputDialog("Enter zip code");
-
-            contact contactdata = new contact(firstName1, lastName1, address1, city1, phone1, state1, zip);
-
-            contactlist.add(contactdata);
-            contactlist.toArray();
-            for (contact person : contactlist) {
-                person.print();
-            }
-        }
-
-        /*UC3 ability to edit contact person using name*/
-        private int Editperson(String firstName, String firstName1) {
-            contact[] contactlist = new contact[0];
-            for (contact person : contactlist) {
-                if (firstName.equals(person.firstName)) {
-                    person.firstName = firstName1;
-                    person.print();
-                }
-            }
-            /*UC4 ability to delete a person using person's name*/
-            private void DeletePerson (String firstName){
-                for (int i = 0; i < contactlist.size(); i++) {
-                    contact p = contactlist.get(i);
-                    if (name.equals(p.firstName)) {
-                        contactlist.remove(i);
-                        System.out.println("Person  name has been deleted");
-                        System.out.println(contactlist);
-                    } else
-                        System.out.println("Person name not found");
-                }
-
-            }
-            /*UC5 ability to add multiple persons to address book*/
-
-            public void AddMultiplePersons () {
-                Scanner sc = new Scanner(System.in);
-                System.out.print("enter how many person you want to add :");
-                int Count = sc.nextInt();
-                for (int i = 1; i <= Count; i++) {
-                    AddPreson();
-                }
-                for (contact p : contactlist) {
-                    p.display();
-                }
-            }
-            /*UC6 add multiple addressbook to the system*/
-
-            public void addMultipleAddressBook () {
-                int AddressBook = 2;
-                for (int i = 0; i < AddressBook; i++) {
-                    AddressBook addressBook = new AddressBook();
-                    Scanner sc = new Scanner(System.in);
-                    System.out.println("Enter the name for addressbook");
-                    String AddressBook_A = sc.next();
-                }
-                return AddressBook;
-            }
-            /* UC7 ability to ensure there is no duplicate entry of the same person*/
-            public void NoDuplicateEntry () {
-
-                if (map.equals(firstName.concat(lastName))) {
-                    System.out.println("no duplicate entries");
-                }
-                map.put(firstName.contactdata(lastName).contactdata);
-            }
-        }
-        public void print(HashMap<String, contact> map){
-            for (String map1 : map.keySet()){
-                System.out.println("key:" +map1+"value:" +map.get(map1));
-            }
-
-            }
-            /*UC8* ability to search person in a city or state accross multiple address*/
-          public void searchPersonByCityorstate(){
               ArrayList<contact> contactlist = new ArrayList<>();
-              Hashtable<String, Integer> hashtable = new Hashtable<String, Integer>();
-              String Cityorstate,contactname;
-              contactname = JOptionPane.showInputDialog("select cityorstate , contactnme");
-              String cityorstate = "Khammam";
-              switch(cityorstate){
-                  case 1:
-                      cityorstate  = JOptionPane
-                              .showInputDialog("Enter the city you want to search ,khammam:");
-                      for (int i = 0; i < contactlist.size(); i++) {
-                          contact p = contactlist.get(i);
-                          if(city.equals(p.city)){
-                              hashtable.put(String.valueOf(i+1),p.contactname);
-                          }else
-                              continue;
-                      }
-                      System.out.println(contactname + "found in" + hashtable);
-                      break;
+
+              String firstName1 = JOptionPane.showInputDialog("Enter First name");
+              String lastName1 = JOptionPane.showInputDialog("Enter last name");
+              String address1 = JOptionPane.showInputDialog("Enter address ");
+              String city1 = JOptionPane.showInputDialog("Enter city name");
+              String phone1 = JOptionPane.showInputDialog("Enter phone number");
+              String state1 = JOptionPane.showInputDialog("Enter state name");
+              String zip1 = JOptionPane.showInputDialog("Enter zip code");
+
+              contact contactdata = new contact(firstName1, lastName1, address1, city1, phone1, state1, zip);
+
+              contactlist.add(contactdata);
+              contactlist.toArray();
+              for (contact person : contactlist) {
+                  person.print();
+              }
+          }
+
+          /*UC3 ability to edit contact person using name*/
+          private int Editperson(String firstName, String firstName1) {
+              contact[] contactlist = new contact[0];
+              for (contact person : contactlist) {
+                  if (firstName.equals(person.firstName)) {
+                      person.firstName = firstName1;
+                      person.print();
+                  }
+              }
+              /*UC4 ability to delete a person using person's name*/
+              private void DeletePerson (String firstName){
+                  for (int i = 0; i < contactlist.size(); i++) {
+                      contact p = contactlist.get(i);
+                      if (name.equals(p.firstName)) {
+                          contactlist.remove(i);
+                          System.out.println("Person  name has been deleted");
+                          System.out.println(contactlist);
+                      } else
+                          System.out.println("Person name not found");
+                  }
+
+              }
+              /*UC5 ability to add multiple persons to address book*/
+
+              public void AddMultiplePersons () {
+                  Scanner sc = new Scanner(System.in);
+                  System.out.print("enter how many person you want to add :");
+                  int Count = sc.nextInt();
+                  for (int i = 1; i <= Count; i++) {
+                      AddPreson();
+                  }
+                  for (contact p : contactlist) {
+                      p.display();
+                  }
+              }
+              /*UC6 add multiple addressbook to the system*/
+
+              public void addMultipleAddressBook () {
+                  int AddressBook = 2;
+                  for (int i = 0; i < AddressBook; i++) {
+                      AddressBook addressBook = new AddressBook();
+                      Scanner sc = new Scanner(System.in);
+                      System.out.println("Enter the name for addressbook");
+                      String AddressBook_A = sc.next();
+                  }
+                  return AddressBook;
+              }
+              /* UC7 ability to ensure there is no duplicate entry of the same person*/
+              public void NoDuplicateEntry () {
+
+                  if (map.equals(firstName.concat(lastName))) {
+                      System.out.println("no duplicate entries");
+                  }
+                  map.put(firstName.contactdata(lastName).contactdata);
+              }
+          }
+
+          class AddressHashMap {
+              public void print(HashMap<String, contact> map) {
+                  for (String map1 : map.keySet()) {
+                      System.out.println("key:" + map1 + "value:" + map.get(map1));
+                  }
 
               }
 
+              /*UC8* ability to search person in a city or state accross multiple address*/
+              public void searchPersonByCityorstate() {
+                  ArrayList<contact> contactlist = new ArrayList<>();
+                  Hashtable<String, Integer> hashtable = new Hashtable<String, Integer>();
+                  String Cityorstate, contactname;
+                  contactname = JOptionPane.showInputDialog("select cityorstate , contactnme");
+                  String cityorstate = "Khammam";
+                  switch (cityorstate) {
+                      case 1:
+                          cityorstate = JOptionPane
+                                  .showInputDialog("Enter the city you want to search ,khammam:");
+                          for (int i = 0; i < contactlist.size(); i++) {
+                              contact p = contactlist.get(i);
+                              if (city.equals(p.city)) {
+                                  hashtable.put(String.valueOf(i + 1), p.contactname);
+                              } else
+                                  continue;
+                          }
+                          System.out.println(contactname + "found in" + hashtable);
+                          break;
 
+                  }
+                  /*UC9 ability to view person by city or state*/
+                  case2:
+                  contactname = JOptionPane.showInputDialog("enter the contact name");
+                  for (int i = 0; i < contactlist.size(); i++) {
+                      contact p = contactlist.get(i);
+                      if (city.equals(p.city)) {
+                          hashtable.put(String.valueOf(i + 1), p.contactname);
+                      } else
+                          continue;
+                  }
+                  System.out.println(contactname + "found in" + hashtable);
+                  break;
+              }
+
+              }
+
+              private void AddPreson() {
+              }
+
+              public void DeletePerson(String chinni) {
+              }
+
+              public void AddMultipleAddressBook() {
+              }
           }
 
-          private void AddPreson() {
-          }
-
-          public void DeletePerson(String chinni) {
-          }
-
-          public void AddMultipleAddressBook() {
-          }
-      }
 
     private void display() {
     }
@@ -178,7 +194,8 @@ import java.util.Scanner;
         // A1.AddMultipleAddressBook();/*UC6*/
         AddressHashMap h =new AddressHashMap();
        // A1.NoDuplicatentries();/*UC7*/
-        A1.searchPersonByCityorstate();/*UC8*/
+        //A1.searchPersonByCityorstate();/*UC8*/
+        A1.searchpersonbycity();/*UC9*/
     }
           private void EditPerson(String chinni, String s){
         }
