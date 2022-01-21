@@ -2,6 +2,7 @@ package com.addressbook;
 
 import javax.swing.*;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /*UC1 create contact in addressbook*/
   class contact {
@@ -77,9 +78,33 @@ import java.util.ArrayList;
                 }
 
             }
+            /*UC5 ability to add multiple persons to address book*/
 
-        }
-public class AddressBook {
+            public void AddMultiplePersons() {
+                Scanner sc = new Scanner(System.in);
+                System.out.print("enter how many person you want to add :");
+                int Count = sc.nextInt();
+                for (int i = 1; i <= Count; i++) {
+                    AddPreson();
+                }
+                for (contact p : contactlist) {
+                    p.display();
+                }
+            }
+
+            }
+
+          private void AddPreson() {
+          }
+
+          public void DeletePerson(String chinni) {
+          }
+      }
+
+    private void display() {
+    }
+
+    public class AddressBook {
     public void main(String[] args) {
         
         Addressbook A1 = new Addressbook();
@@ -91,11 +116,6 @@ public class AddressBook {
         //A1.EditPerson("chinni", " Chinni");
         A1.DeletePerson("chinni");
     }
-}
-
-          private void DeletePerson(String chinni) {
-          }
-
           private void EditPerson(String chinni, String s){
         }
       }
