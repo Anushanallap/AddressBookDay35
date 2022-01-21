@@ -2,12 +2,15 @@ package com.addressbook;
 
 
 import javax.swing.*;
+import java.io.*;
+import java.nio.file.Files;
 import java.util.*;
 import java.util.stream.Collectors;
 
 /*UC1 create contact in addressbook*/
   class contact<AddressHashMap> {
 
+    private static final File FILE_PATH = "C:\\Users\\Dell\\ideaprojects\\AddressBookDay35\\src\\main\\java\com\\adressbook\\AddressBookFile";
     String firstName;
     String lastName;
     String address;
@@ -72,7 +75,7 @@ import java.util.stream.Collectors;
             /*UC4 ability to delete a person using person's name*/
             private void DeletePerson (String firstName){
                 for (int i = 0; i < contactlist.size(); i++) {
-                    contact p = contactlist.get(i);
+                    Class<?> p = contactlist.getClass(i);
                     if (name.equals(p.firstName)) {
                         contactlist.remove(i);
                         System.out.println("Person  name has been deleted");
@@ -203,6 +206,27 @@ import java.util.stream.Collectors;
 			break;
     }
 
+    /*UC13 Ability to read or write the addressbook with persons contact into file using file IO*/
+    public static void readDatafromFile() throws FileNotFoundException {
+        FileWriter writer = new FileWriter(FILE_PATH);
+        HashMap<Object, Object> emplyDate;
+        emplyDate.forEach(data -> {
+            try {
+                writer.write(data + System.lineSeparator());
+            } catch (IOException e) {
+                e.printStackTrace();
+                System.out.println("Invaid input");
+            }
+        });
+        writer.close();
+    }
+
+    public static void printData() throws IOException {
+        Files.lines(new File(FILE_PATH).toPath()).forEach(System.out::println);
+    }
+
+    
+
 
               private void AddPreson() {
               }
@@ -212,13 +236,12 @@ import java.util.stream.Collectors;
 
               public void AddMultipleAddressBook() {
               }
-          }
 
 
     private void display() {
     }
-
-    public class AddressBook {
+}
+public class AddressBook {
     public void main(String[] args) {
         
         Addressbook A1 = new Addressbook();
@@ -235,12 +258,13 @@ import java.util.stream.Collectors;
        // A1.NoDuplicatentries();/*UC7*/
         //A1.searchPersonByCityorstate();/*UC8*/
        // A1.searchpersonbycity();/*UC9*/
-        A1.sortentriesof addressbook();/*UC11 & UC12*/
+        //A1.sortentriesof addressbook();/*UC11 & UC12*/
+        A1.readDatafromFile();
     }
           private void EditPerson(String chinni, String s){
         }
       }
-    }
+    
 
 
 
