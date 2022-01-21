@@ -4,6 +4,7 @@ import javax.naming.Name;
 import javax.swing.*;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.Scanner;
 
 /*UC1 create contact in addressbook*/
@@ -17,6 +18,7 @@ import java.util.Scanner;
     String email;
     int phone;
     int zip;
+    private Integer contactname;
 
 
     public contact(String firstName, String lastName, String address, String city, String state, String email, int zip) {
@@ -72,7 +74,7 @@ import java.util.Scanner;
             /*UC4 ability to delete a person using person's name*/
             private void DeletePerson (String firstName){
                 for (int i = 0; i < contactlist.size(); i++) {
-                    AddressBook p = contactlist.get(i);
+                    contact p = contactlist.get(i);
                     if (name.equals(p.firstName)) {
                         contactlist.remove(i);
                         System.out.println("Person  name has been deleted");
@@ -122,6 +124,31 @@ import java.util.Scanner;
             }
 
             }
+            /*UC8* ability to search person in a city or state accross multiple address*/
+          public void searchPersonByCityorstate(){
+              ArrayList<contact> contactlist = new ArrayList<>();
+              Hashtable<String, Integer> hashtable = new Hashtable<String, Integer>();
+              String Cityorstate,contactname;
+              contactname = JOptionPane.showInputDialog("select cityorstate , contactnme");
+              String cityorstate = "Khammam";
+              switch(cityorstate){
+                  case 1:
+                      cityorstate  = JOptionPane
+                              .showInputDialog("Enter the city you want to search ,khammam:");
+                      for (int i = 0; i < contactlist.size(); i++) {
+                          contact p = contactlist.get(i);
+                          if(city.equals(p.city)){
+                              hashtable.put(String.valueOf(i+1),p.contactname);
+                          }else
+                              continue;
+                      }
+                      System.out.println(contactname + "found in" + hashtable);
+                      break;
+
+              }
+
+
+          }
 
           private void AddPreson() {
           }
@@ -150,7 +177,8 @@ import java.util.Scanner;
         // A1.AddMultiplePersons();/*UC5*/
         // A1.AddMultipleAddressBook();/*UC6*/
         AddressHashMap h =new AddressHashMap();
-        A1.NoDuplicatentries();/*UC7*/
+       // A1.NoDuplicatentries();/*UC7*/
+        A1.searchPersonByCityorstate();/*UC8*/
     }
           private void EditPerson(String chinni, String s){
         }
