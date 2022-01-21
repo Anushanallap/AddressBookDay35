@@ -261,7 +261,34 @@ import java.util.stream.Collectors;
             e.printStackTrace();
         }
     }
+/*UC15 ability to read/write the address book with personscontact as json file*/
+    public void writejsondatafile() {
 
+        try {
+            // creating a writer
+            Writer writer = new FileWriter("c:\\users\\Dell\\eclipse-workspace\\txtfile.Gson");
+            new Gson().toJson(contactlist, writer);
+            System.out.println("Done");
+            writer.close();
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
+
+    public  <Gson> void readjsondatafile() {
+
+        Gson gson = new Gson();
+        try {
+
+            AddressBook[] jsondata = gson.fromJson(new FileReader("c:\\users\\Dell\\eclipse-workspace\\txtfile.Gson"), Address[].class);
+
+            System.out.println(gson.toJson(jsondata));
+        } catch (IOException e) {
+            System.out.println("File not found");
+        }
+    }
 
               private void AddPreson() {
               }
