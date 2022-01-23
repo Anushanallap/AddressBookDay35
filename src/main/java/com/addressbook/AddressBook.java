@@ -1,7 +1,12 @@
 package com.addressbook;
 
-/*UC1*/
-
+/*
+ * UC1 :- Ability to create a Contacts in AddressBook with first and last names, address,city, state, zip, phone number and email...
+ * Every UC is in a separate Git Branch and then merged with main
+ * Naming Convention, Indentation, etc Code Hygiene will be checked during
+ * Review Git Check In Comments and Version History will be monitored
+ *
+ */ 
 import javax.swing.*;
 import java.util.ArrayList;
 
@@ -34,8 +39,11 @@ import java.util.ArrayList;
     }
 
       class Addressbook {
-        /*UC2*/
-        public void Addnewcontact() {
+/*
+	 * UC2 :- Ability to add a new Contact to Address Book - Use Console to add
+	 * person details from AddressBookMain class - Use Object Oriented Concepts to
+	 * manage relationship between AddressBook and Contact Person
+	 */         public void Addnewcontact() {
 
             ArrayList<contact> contactlist = new ArrayList<>();
 
@@ -56,8 +64,12 @@ import java.util.ArrayList;
             }
         }
 
-        /*UC3*/
-        private void Editperson(String firstName, String firstName1) {
+* UC3 :- Ability to edit existing contact person using their name - Use Console
+	 * to edit person details
+	 *
+	 * @param name,name1.
+	 */   
+	            private void Editperson(String firstName, String firstName1) {
             contact[] contactlist = new contact[0];
             for (contact person : contactlist) {
                 if (firstName.equals(person.firstName)) {
