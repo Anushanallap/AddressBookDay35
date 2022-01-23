@@ -7,8 +7,13 @@ import java.nio.file.Files;
 import java.util.*;
 import java.util.stream.Collectors;
 
-/*UC1 create contact in addressbook*/
-  class contact<AddressHashMap> {
+/*
+ * UC1 :- Ability to create a Contacts in AddressBook with first and last names, address,city, state, zip, phone number and email...
+ * Every UC is in a separate Git Branch and then merged with main
+ * Naming Convention, Indentation, etc Code Hygiene will be checked during
+ * Review Git Check In Comments and Version History will be monitored
+ *
+ */  class contact<AddressHashMap> {
 
     private static final File FILE_PATH = "C:\\Users\\Dell\\ideaprojects\\AddressBookDay35\\src\\main\\java\com\\adressbook\\AddressBookFile";
     String firstName;
@@ -41,8 +46,12 @@ import java.util.stream.Collectors;
     class Addressbook {
         private Object map;
 
-        /*UC2 ability to add new contact to addressbook*/
-        public void Addnewcontact() {
+/*
+	 * UC2 :- Ability to add a new Contact to Address Book - Use Console to add
+	 * person details from AddressBookMain class - Use Object Oriented Concepts to
+	 * manage relationship between AddressBook and Contact Person
+	 */      
+	    public void Addnewcontact() {
 
             ArrayList<contact> contactlist = new ArrayList<>();
 
@@ -63,8 +72,14 @@ import java.util.stream.Collectors;
             }
         }
 
-        /*UC3 ability to edit contact person using name*/
-        private int Editperson(String firstName, String firstName1) {
+/*
+	 * UC3 :- Ability to edit existing contact person using their name - Use Console
+	 * to edit person details
+	 *
+	 * @param name,name1.
+	 */   
+	    
+	    private int Editperson(String firstName, String firstName1) {
             contact[] contactlist = new contact[0];
             for (contact person : contactlist) {
                 if (firstName.equals(person.firstName)) {
@@ -72,8 +87,13 @@ import java.util.stream.Collectors;
                     person.print();
                 }
             }
-            /*UC4 ability to delete a person using person's name*/
-            private void DeletePerson (String firstName){
+/*
+	 * UC4 :- Ability to delete a person using person's name - Use Console to delete
+	 * a person.
+	 *
+	 @param name.
+	 */
+		    private void DeletePerson (String firstName){
                 for (int i = 0; i < contactlist.size(); i++) {
                     Class<?> p = contactlist.getClass(i);
                     if (name.equals(p.firstName)) {
@@ -85,8 +105,13 @@ import java.util.stream.Collectors;
                 }
 
             }
-            /*UC5 ability to add multiple persons to address book*/
-
+/*
+	 * UC5 :- Ability to add multiple person to Address Book - Use Console to add
+	 * person details one at a time - Use Collection Class to maintain multiple
+	 * contact persons in Address Books
+	 *
+	 @return It prints the multiple persons data n Address Book.
+	 */
             public void AddMultiplePersons () {
                 Scanner sc = new Scanner(System.in);
                 System.out.print("enter how many person you want to add :");
@@ -98,8 +123,11 @@ import java.util.stream.Collectors;
                     p.display();
                 }
             }
-            /*UC6 add multiple addressbook to the system*/
-
+/*
+	 UC6* Ability to search Person in a City or State
+	 *
+	 @return It returns person data that matches with city or state in AddressBook
+	 */
             public void addMultipleAddressBook () {
                 int AddressBook = 2;
                 for (int i = 0; i < AddressBook; i++) {
@@ -130,7 +158,9 @@ import java.util.stream.Collectors;
 
             }
 
-            /*UC8* ability to search person in a city or state accross multiple address*/
+            /*UC8* ability to search person in a city or state accross multiple address
+	    * * @return It returns an person data match with state
+	    */
             public void searchPersonByCityorstate() {
                 ArrayList<contact> contactlist = new ArrayList<>();
                 Hashtable<String, Integer> hashtable = new Hashtable<String, Integer>();
@@ -152,7 +182,9 @@ import java.util.stream.Collectors;
                         break;
 
                 }
-                /*UC9 ability to view person by city or state*/
+                /*UC9 ability to view person by city or state
+		*@return it returns persons city or state
+		*/
                 case2:
                 contactname = JOptionPane.showInputDialog("enter the contact name");
                 for (int i = 0; i < contactlist.size(); i++) {
@@ -166,7 +198,9 @@ import java.util.stream.Collectors;
                 break;
 
 
-                /*UC10 ability to get number of contact peron i.e count by city or state*/
+                /*UC10 ability to get number of contact peron i.e count by city or state
+		*@return it returns Contact prson city or state
+		*/
                 case3:
                 cityorstate = JOptionPane.showInputDialog("Enter the city or state name");
                 for (int i = 0; i < contactlist.size(); i++) {
@@ -183,7 +217,9 @@ import java.util.stream.Collectors;
                 System.out.println("Invalid user input");
                 break;
             }
-            /*UC11 ability to sort the entries in the addressbook*/
+            /*UC11 ability to sort the entries in the addressbook
+	    *@return it returns sorted entries of the address
+	    */
               case"4":
             private Arrays contactlist;
             List<String> sorted = contactlist.stream().map(a -> {
@@ -193,7 +229,13 @@ import java.util.stream.Collectors;
 			sorted.forEach(System.out::println);
 			break;
         }
-        /*UC12 ability to sort the entries in the addressbook by city,stateor zip*/
+        /*UC12 ability to sort the entries in the addressbook by city,stateor zip
+	*
+	
+	 * @throws IOException
+	 * @param emplist data takes as ArrayList.
+	 * @return It returns the write the CSV file data
+	 */
               case"5":
         private Arrays contactlist;
         List<String> sortedzip = contactlist.stream().map(s -> s.zip).sorted().collect(Collectors.toList());
@@ -206,7 +248,9 @@ import java.util.stream.Collectors;
 			break;
     }
 
-    /*UC13 Ability to read or write the addressbook with persons contact into file using file IO*/
+    /*UC13 Ability to read or write the addressbook with persons contact into file using file IO
+    * @throws IOException
+    */
     public static void readDatafromFile() throws FileNotFoundException {
         FileWriter writer = new FileWriter(FILE_PATH);
         HashMap<Object, Object> emplyDate;
@@ -224,7 +268,9 @@ import java.util.stream.Collectors;
     public static void printData() throws IOException {
         Files.lines(new File(FILE_PATH).toPath()).forEach(System.out::println);
     }
-}/*UC14 ability to read/write the address book with personscontact as csvfile */
+}/*UC14 ability to read/write the address book with personscontact as csvfile 
+* @return It returns the CSV files data in Address Book.
+	 * @param file /
     public <CSVWriter> void writedataAtOnce() {
         File file = new File("c:\\users\\Dell\\eclipse-workspace\\txtfile.csv");
 
@@ -261,7 +307,9 @@ import java.util.stream.Collectors;
             e.printStackTrace();
         }
     }
-/*UC15 ability to read/write the address book with personscontact as json file*/
+/*UC15 ability to read/write the address book with personscontact as json file
+** @param It provides the filename with extension. It creates he JSON file.
+*/
     public void writejsondatafile() {
 
         try {
@@ -276,7 +324,12 @@ import java.util.stream.Collectors;
         }
     }
 
-
+/**
+	 * Ability to Read the Address Book with Persons Contact as JSON File
+	 * 
+	 * @param It provides the filename with extension.
+	 * @purpose It returns the JSON file data.
+	 */
     public  <Gson> void readjsondatafile() {
 
         Gson gson = new Gson();
