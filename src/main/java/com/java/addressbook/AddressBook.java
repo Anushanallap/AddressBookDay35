@@ -1,5 +1,12 @@
 package com.java.addressbook;
 
+/*
+ * UC1 :- Ability to create a Contacts in AddressBook with first and last names, address,city, state, zip, phone number and email...
+ * Every UC is in a separate Git Branch and then merged with main
+ * Naming Convention, Indentation, etc Code Hygiene will be checked during
+ * Review Git Check In Comments and Version History will be monitored
+ *
+ */ 
 public class AddressBook {
 
         String firstName;
