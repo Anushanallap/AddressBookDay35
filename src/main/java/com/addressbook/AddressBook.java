@@ -4,8 +4,14 @@ import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-/*UC1 create contact in addressbook*/
-  class contact {
+/*
+ * UC1 :- Ability to create a Contacts in AddressBook with first and last names, address,city, state, zip, phone number and email...
+ * Every UC is in a separate Git Branch and then merged with main
+ * Naming Convention, Indentation, etc Code Hygiene will be checked during
+ * Review Git Check In Comments and Version History will be monitored
+ *
+ */
+class contact {
 
     String firstName;
     String lastName;
@@ -34,7 +40,11 @@ import java.util.Scanner;
     }
 
       class Addressbook {
-        /*UC2 ability to add new contact to addressbook*/
+/*
+	 * UC2 :- Ability to add a new Contact to Address Book - Use Console to add
+	 * person details from AddressBookMain class - Use Object Oriented Concepts to
+	 * manage relationship between AddressBook and Contact Person
+	 */
         public void Addnewcontact() {
 
             ArrayList<contact> contactlist = new ArrayList<>();
@@ -56,7 +66,12 @@ import java.util.Scanner;
             }
         }
 
-        /*UC3 ability to edit contact person using name*/
+/*
+	 * UC3 :- Ability to edit existing contact person using their name - Use Console
+	 * to edit person details
+	 *
+	 * @param name,name1.
+	 */ 
         private int Editperson(String firstName, String firstName1) {
             contact[] contactlist = new contact[0];
             for (contact person : contactlist) {
@@ -65,8 +80,13 @@ import java.util.Scanner;
                     person.print();
                 }
             }
-            /*UC4 ability to delete a person using person's name*/
-            private void  DeletePerson(String firstName){
+/*
+	 * UC4 :- Ability to delete a person using person's name - Use Console to delete
+	 * a person.
+	 *
+	 @param name.
+	 */
+          private void  DeletePerson(String firstName){
                 for (int i = 0; i < contactlist.size(); i++) {
                     AddressBook p = contactlist.get(i);
                     if (name.equals(p.firstName)) {
@@ -78,8 +98,14 @@ import java.util.Scanner;
                 }
 
             }
-            /*UC5 ability to add multiple persons to address book*/
-
+/*
+	 * UC5 :- Ability to add multiple person to Address Book - Use Console to add
+	 * person details one at a time - Use Collection Class to maintain multiple
+	 * contact persons in Address Books
+	 *
+	 @return It prints the multiple persons data n Address Book.
+	 */
+          
             public void AddMultiplePersons() {
                 Scanner sc = new Scanner(System.in);
                 System.out.print("enter how many person you want to add :");
@@ -91,8 +117,11 @@ import java.util.Scanner;
                     p.display();
                 }
             }
-            /*UC6 add multiple addressbook to the system*/
-
+/*
+	 UC6* Ability to search Person in a City or State
+	 *
+	 @return It returns person data that matches with city or state in AddressBook
+	 */
             public void  addMultipleAddressBook(){
                 int AddressBook = 2;
                 for(int i = 0; i<AddressBook; i++){
